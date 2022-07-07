@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import styles from './counter.module.scss';
 import Button from '../Button/Button';
@@ -14,15 +14,15 @@ const Counter: FC<ICounterProps> = ({ isHide }) => {
   const [counter, setCounter] = useState(total);
   const dispatch = useDispatch();
 
-  const incrementTotal = () => {
+  const incrementTotal = useCallback(() => {
     setCounter((prev) => prev + 1);
     dispatch(increment());
-  };
+  }, []);
 
-  const decrementTotal = () => {
+  const decrementTotal = useCallback(() => {
     setCounter((prev) => prev - 1);
     dispatch(decrement());
-  };
+  }, []);
 
   useEffect(() => {
     if (isHide) {

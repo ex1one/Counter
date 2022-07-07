@@ -9,4 +9,4 @@ const Button: FC<IButtonProps> = ({ type, children, ...props }) => (
   </button>
 );
 
-export default Button;
+export default React.memo(Button);

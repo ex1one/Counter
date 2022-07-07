@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import Button from '../Button/Button';
 import { addCounter, deleteCounter } from '../../store/reducers/totalCounters';
@@ -6,13 +6,13 @@ import { addCounter, deleteCounter } from '../../store/reducers/totalCounters';
 const AddCounter = () => {
   const dispatch = useDispatch();
 
-  const add = () => {
+  const add = useCallback(() => {
     dispatch(addCounter());
-  };
+  }, []);
 
-  const remove = () => {
+  const remove = useCallback(() => {
     dispatch(deleteCounter());
-  };
+  }, []);
 
   return (
     <>
