@@ -10,7 +10,7 @@ const App = () => {
     <div>
       <AddCounter />
       {counters.map((item, index) => (
-        <Counter isHide={(index + 1) % 4 === 0 && index !== 0} key={item?.id} />
+        <Counter isHide={(index + 1) % 4 === 0} key={item?.id} />
       ))}
     </div>
   );
